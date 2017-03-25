@@ -1,0 +1,530 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>中南大学苹果实验室</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="中南大学，开发，苹果实验室，前端开发，web开发，ios开发，安卓开发" />
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.0.1/magnific-popup.min.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.theme.min.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Modernizr JS -->
+    <script src="//cdn.bootcss.com/modernizr/2.6.2/modernizr.min.js"></script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=61299088" charset="UTF-8"></script>
+    <style>
+        #hexGrid {
+            overflow: hidden;
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 100px;
+            padding:0.866% 0;
+            font-family: 'Raleway', sans-serif;
+            font-size: 15px;
+        }
+        #hexGrid:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .hex {
+            position: relative;
+            list-style-type: none;
+            float: left;
+            overflow: hidden;
+            visibility: hidden;
+            outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+            -webkit-transform: rotate(-60deg) skewY(30deg) translatez(-1px);
+            -ms-transform: rotate(-60deg) skewY(30deg) translatez(-1px);
+            transform: rotate(-60deg) skewY(30deg) translatez(-1px);
+        }
+        .hex * {
+            position: absolute;
+            visibility: visible;
+            outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
+        }
+        .hexIn {
+            display:block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            -webkit-transform: skewY(-30deg) rotate(60deg);
+            -ms-transform: skewY(-30deg) rotate(60deg);
+            transform: skewY(-30deg) rotate(60deg);
+        }
+
+        /*** HEX CONTENT **********************************************************************/
+        .hex img {
+            left: -100%;
+            right: -100%;
+            width: auto;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .hex h1, .hex p {
+            width: 102%;
+            left:-1%; /* prevent line on the right where background doesn't cover image */
+            padding: 5%;
+            box-sizing:border-box;
+            background-color: rgba(83, 179, 255, 0.8);
+            font-weight: 300;
+            -webkit-transition:  -webkit-transform .2s ease-out, opacity .3s ease-out;
+            transition:          transform .2s ease-out, opacity .3s ease-out;
+        }
+        .hex h1 {
+            bottom: 50%;
+            padding-top:50%;
+            font-size: 1.5em;
+            z-index: 1;
+            -webkit-transform:translateY(-100%) translatez(-1px);
+            -ms-transform:translateY(-100%) translatez(-1px);
+            transform:translateY(-100%) translatez(-1px);
+        }
+        .hex h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 45%;
+            width: 10%;
+            text-align: center;
+            border-bottom: 1px solid #fff;
+        }
+        .hex p {
+            top: 50%;
+            padding-bottom:50%;
+            -webkit-transform:translateY(100%) translatez(-1px);
+            -ms-transform:translateY(100%) translatez(-1px);
+            transform:translateY(100%) translatez(-1px);
+        }
+
+
+        /*** HOVER EFFECT  **********************************************************************/
+        .hexIn:hover h1, .hexIn:focus h1,
+        .hexIn:hover p, .hexIn:focus p{
+            -webkit-transform:translateY(0%) translatez(-1px);
+            -ms-transform:translateY(0%) translatez(-1px);
+            transform:translateY(0%) translatez(-1px);
+        }
+
+        /*** SPACING AND SIZING *****************************************************************/
+        @media (min-width:1201px) { /* <- 5-4  hexagons per row */
+            .hex {
+                width: 19.2%; /* = (100-4) / 5 */
+                padding-bottom: 22.170%; /* =  width / sin(60deg) */
+            }
+            .hex:nth-child(9n+6),
+            .hex:nth-child(9n+7),
+            .hex:nth-child(9n+8),
+            .hex:nth-child(9n+9) {
+                margin-top: -4.676%;
+                margin-bottom: -4.676%;
+                -webkit-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+                -ms-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+                transform: translateX(50%) rotate(-60deg) skewY(30deg);
+            }
+            .hex:nth-child(9n+6):last-child,
+            .hex:nth-child(9n+7):last-child,
+            .hex:nth-child(9n+8):last-child,
+            .hex:nth-child(9n+9):last-child {
+                margin-bottom: 0;
+            }
+            .hex:nth-child(9n+6) {
+                margin-left: 0.5%;
+                clear: left;
+            }
+            .hex:nth-child(9n+10) {
+                clear: left;
+            }
+            .hex:nth-child(9n+2),
+            .hex:nth-child(9n+ 7) {
+                margin-left: 1%;
+                margin-right: 1%;
+            }
+            .hex:nth-child(9n+3),
+            .hex:nth-child(9n+4),
+            .hex:nth-child(9n+8) {
+                margin-right: 1%;
+            }
+        }
+        @media (max-width: 1200px) and (min-width:901px) {/* <- 4-3  hexagons per row */
+            .hex {
+                width: 24.25%; /* = (100-3) / 4 */
+                padding-bottom: 28.001%; /* =  width / sin(60deg) */
+            }
+            .hex:nth-child(7n+5),
+            .hex:nth-child(7n+6),
+            .hex:nth-child(7n+7) {
+                margin-top: -6.134%;
+                margin-bottom: -6.134%;
+                -webkit-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+                -ms-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+                transform: translateX(50%) rotate(-60deg) skewY(30deg);
+            }
+            .hex:nth-child(7n+5):last-child,
+            .hex:nth-child(7n+6):last-child,
+            .hex:nth-child(7n+7):last-child {
+                margin-bottom: 0;
+            }
+            .hex:nth-child(7n+2),
+            .hex:nth-child(7n+6) {
+                margin-left: 1%;
+                margin-right: 1%;
+            }
+            .hex:nth-child(7n+3) {
+                margin-right: 1%;
+            }
+            .hex:nth-child(7n+8) {
+                clear: left;
+            }
+            .hex:nth-child(7n+5) {
+                clear: left;
+                margin-left: 0.5%;
+            }
+        }
+        @media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
+            .hex {
+                width: 32.666%; /* = (100-2) / 3 */
+                padding-bottom: 37.720%; /* =  width / sin(60) */
+            }
+            .hex:nth-child(5n+4),
+            .hex:nth-child(5n+5) {
+                margin-top: -8.564%;
+                margin-bottom: -8.564%;
+                -webkit-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+                -ms-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+                transform: translateX(50%) rotate(-60deg) skewY(30deg);
+            }
+            .hex:nth-child(5n+4):last-child,
+            .hex:nth-child(5n+5):last-child {
+                margin-bottom: 0;
+            }
+            .hex:nth-child(5n+4) {
+                margin-right: 1%;
+                margin-left: 0.5%;
+            }
+            .hex:nth-child(5n+2) {
+                margin-left: 1%;
+                margin-right: 1%;
+            }
+            .hex:nth-child(5n+6) {
+                clear: left;
+            }
+        }
+        @media (max-width: 600px) { /* <- 2-1  hexagons per row */
+            .hex {
+                width: 49.5%; /* = (100-1) / 2 */
+                padding-bottom: 57.158%; /* =  width / sin(60) */
+            }
+            .hex:nth-child(3n+3) {
+                margin-top: -13.423%;
+                margin-bottom: -13.423%;
+                -webkit-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+                -ms-transform: translateX(50%) rotate(-60deg) skewY(30deg);
+                transform: translateX(50%) rotate(-60deg) skewY(30deg);
+            }
+            .hex:nth-child(3n+3):last-child {
+                margin-bottom: 0;
+            }
+            .hex:nth-child(3n+3) {
+                margin-left: 0.5%;
+            }
+            .hex:nth-child(3n+2) {
+                margin-left: 1%;
+            }
+            .hex:nth-child(3n+4) {
+                clear: left;
+            }
+        }
+        @media (max-width: 400px) {
+            #hexGrid {
+                font-size: 13px;
+            }
+        }
+        #hexGrid p{color: #fff}
+        #hexGrid h1{color: #fff}
+    </style>
+</head>
+<body>
+<div class="gtco-loader"></div>
+<div id="page">
+    <nav class="gtco-nav" role="navigation">
+        <div class="gtco-container">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div id="gtco-logo">
+                        <img src="images/logo.png">
+                    </div>
+                </div>
+                <div class="col-xs-10 text-center menu-1">
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li class="active"><a href="member.html">成员介绍</a></li>
+                        <li><a href="hr-coder.html">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image:url(http://of8t6pu0g.bkt.clouddn.com/img_bg_1.jpg);height: 100px">
+    </header>
+
+    <div class="gtco-section">
+        <div class="gtco-container">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center gtco-heading gtco-heading-sm">
+                    <h2>成员介绍</h2>
+                </div>
+            </div>
+            <div class="row animate-box" id="member">
+                <ul id="hexGrid">
+                    <li class="hex" v-for="member in members">
+                        <a class="hexIn" v-bind:href="member.url"> <img v-bind:src="member.src" alt="" />
+                            <h1>{{member.name}}</h1>
+                            <p>{{member.text}}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer id="gtco-footer" role="contentinfo">
+        <div class="gtco-container">
+            <div class="row row-pb-md">
+                <div class="col-md-6 gtco-widget">
+                    <h3>联系方式</h3>
+                    <p><a href="#">地址：中南大学新校区电子电工实验中心401</a></p>
+                    <p><a href="">邮箱：stark123@csu.edu.cn <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sakura@csu.edu.cn</a></p>
+                </div>
+                <div class="col-md-3 gtco-widget">
+                    <h3>站内导航</h3>
+                    <ul class="gtco-footer-links">
+                        <li><a href="http://csuapple.com/">主页</a></li>
+                        <li><a href="http://hr.csuapple.com/">加入我们</a></li>
+                        <li><a href="http://team.csuapple.com/">团队成员</a></li>
+                        <li><a href="http://blog.csuapple.com/">技术博客</a></li>
+                        <li><a href="http://forum.csuapple.com/">技术社区</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 gtco-widget">
+                    <h3>友情链接</h3>
+                    <ul class="gtco-footer-links">
+                        <li><a href="http://csu.edu.cn/">中南大学</a></li>
+                        <li><a href="http://bbs.csu.edu.cn/">中南大学云麓园BBS</a></li>
+                        <li><a href="http://54sh.csu.edu.cn/">中南大学升华网</a></li>
+                        <li><a href="http://sise.csu.edu.cn/">中南大学信息院</a></li>
+                        <li><a href="http://software.csu.edu.cn/">中南大学软件院</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row copyright">
+                <div class="col-md-12">
+                    <p class="pull-left">
+                        <small class="block">&copy; Copyright 2016. All Rights Reserved by CSU APPLE Lab. </small>
+                        <small class="block"><a href="http://www.csuapple.com/" target="_blank">中南大学苹果实验室</a> 湘ICP备16019716号</small>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</div>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>
+<! -- Vue -->
+<script src="//cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="http://of8t6pu0g.bkt.clouddn.com/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="http://of8t6pu0g.bkt.clouddn.com/jquery.waypoints.min.js"></script>
+<!-- Carousel -->
+<script src="//cdn.bootcss.com/owl-carousel/1.19/owl.carousel.min.js"></script>
+<!-- countTo -->
+<script src="http://of8t6pu0g.bkt.clouddn.com/jquery.countTo.js"></script>
+<!-- Magnific Popup -->
+<script src="//cdn.bootcss.com/magnific-popup.js/1.0.1/jquery.magnific-popup.min.js"></script>
+<script src="http://of8t6pu0g.bkt.clouddn.com/magnific-popup-options.js"></script>
+<!-- Main -->
+<script src="http://of8t6pu0g.bkt.clouddn.com/main.js"></script>
+<script>
+    var member = new Vue({
+        el:'#member',
+        data:{
+            members:[
+                {
+                    name:'鲁鸣鸣',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team1.jpg',
+                    text:'中南大学副教授，Citrix公司前高级工程师，研究计算机网络与信息安全',
+                    url:''
+                },
+                {
+                    name:'谢帅',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team2.jpg',
+                    text:'14级，中南大学图灵班首任班长，python与机器学习',
+                    url:''
+                },
+                {
+                    name:'JustZht',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team3.jpg',
+                    text:'14级，ios与unity开发，目前在百度实习，个人主页：justzht.com',
+                    url:'http://www.justzht.com/'
+
+                },
+                {
+                    name:'张伏旭',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-zhangfuxu.jpg',
+                    text:'13级，苹果移动应用创新赛一等奖并与苹果CEU库克会面，目前研究人工智能',
+                    url:''
+
+                },
+                {
+                    name:'Bugzhang',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team4.jpg',
+                    text:'14级，前端，国内开源组织开源社成员，个人主页：bugzhang.com',
+                    url:'http://www.bugzhang.com/'
+
+                },
+                {
+                    name:'JasonVon',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team5.jpg',
+                    text:'14级，升华网现任总监，php、c++后端开发。',
+                    url:''
+
+                },
+                {
+                    name:'Zpnaruto',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team6.jpg',
+                    text:'16级，前端。主页：www.zpnaruto.cn/',
+                    url:''
+
+                },
+                {
+                    name:'Nastul',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team8.jpg',
+                    text:'Android&php&机器学习，云麓谷前移动组开发负责人，校乐队电音吉他手',
+                    url:''
+
+                },
+
+                {
+                    name:'XFeiF',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team7.jpg',
+                    text:'算法，Android，个人主页：http://x-fei.me/。',
+                    url:''
+
+                },
+                {
+                    name:'OceanJaya',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team9.jpg',
+                    text:'Data Miner，Pythoner，个人主页：http://oceanjaya.com/',
+                    url:''
+
+                },
+                {
+                    name:'jxpxxzj',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-xiaozijin.jpg',
+                    text:'以全栈为目标成长，擅长 C# 与 JavaScript，个人主页:www.jxpxxzj.cn',
+                    url:'http://jxpxxzj.oschina.io/'
+
+                },
+                {
+                    name:'Equim',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-wangkangchen.jpg',
+                    text:'Node.js 与 golang 后端，运维，偶尔写 C#，主页：https://ekyu.moe/',
+                    url:'https://ekyu.moe/'
+                },
+                {
+                    name:'长门有希',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team9.jpg',
+                    text:'Web，Linux，Win32，专注改配置和造轮子，主页：https://www.yuki-nagato.com/',
+                    url:'https://www.yuki-nagato.com/'
+                },
+                {
+                    name:'宗健平',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-zongjianpin.jpg',
+                    text:'分布式，data miner，pythoner',
+                    url:''
+                },
+                {
+                    name:'Linvon',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-wanglinfen.jpg',
+                    text:'ACMer，c++，php后端开发，开发之余喜欢足球',
+                    url:''
+                },
+                {
+                    name:'ByeBir',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-lizhuo.jpg',
+                    text:'前端开发与.net后端开发，对机器学习充满兴趣，爱好射箭',
+                    url:''
+                },
+                {
+                    name:'Phoenix',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-Phoenix.jpg',
+                    text:'iOS开发与算法爱好者',
+                    url:''
+                },
+                {
+                    name:'麦宇翔',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-maiyuxiang.jpg',
+                    text:'移动组，iOS开发，爱好探险',
+                    url:''
+                },
+                {
+                    name:'崔心雨',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team.cuixinyu',
+                    text:'心自爱云间，与君共前端。醉起抚白衫，率舞更翩跹',
+                    url:''
+                },
+                {
+                    name:'Charlieyang',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-yangtianchen.jpg',
+                    text:'研发组，移动开发',
+                    url:''
+                },
+                {
+                    name:'Aknife',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-zengdejiao.jpg',
+                    text:'php，objective-c爱好者',
+                    url:''
+                },
+                {
+                    name:'Visual Artist',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team-huoyongzhen.jpg',
+                    text:'万能的霍小猫',
+                    url:''
+                },
+                {
+                    name:'加入我们',
+                    src:'http://of8t6pu0g.bkt.clouddn.com/team11.jpg',
+                    text:'我们在寻找下一个志在未来的你!',
+                    url:'http://hr.csuapple.com/'
+                }
+            ]
+        }
+    });
+</script>
+</body>
+</html>
+
