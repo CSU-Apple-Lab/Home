@@ -8,7 +8,7 @@ const opts = {
     user: cfg_mongo.user,
     pass: cfg_mongo.pass,
     auth:{
-        authdb: 'admin'
+        authdb: cfg_mongo.db
     }
 };
 

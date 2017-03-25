@@ -5,7 +5,7 @@ const views = require('koa-views');
 const serve = require('koa-static');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
-const path = require('path');
+const { join } = require('path');
 
 // 配置与初始化
 require('./init/config');
@@ -15,15 +15,13 @@ const app = new Koa();
 const router = new Router();
 
 // 设置模板引擎
-app.use(views(path.join(__dirname, '/views'), {
+app.use(views(join(__dirname, '/views'), {
     extension: 'hbs',
-    map: {
-        hbs: 'handlebars'
-    }
+    map: { hbs: 'handlebars' }
 }));
 
 // 静态资源
-app.use(serve(path.join(__dirname, '/public')));
+app.use(serve(join(__dirname, '/public')));
 
 // Body parser
 app.use(bodyParser());
