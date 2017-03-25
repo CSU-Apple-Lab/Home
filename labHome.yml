@@ -1,0 +1,17 @@
+apps:
+  -
+    name: labHome
+    # cwd:
+    script: index.js
+    watch: true
+    ignore_watch:
+      - node_modules
+      - public
+      - logs
+    exec_mode: cluster
+    instances: 0
+    env:
+      NODE_ENV: production
+    merge_logs: true
+    out_file: logs/stdout.log
+    error_file: logs/stderr.log
