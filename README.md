@@ -15,7 +15,7 @@ $ vim config.js                              # 编辑配置文件，包含监听
 $ cd ..
 
 # 调试运行
-$ DEBUG=koa-views node app.js
+$ DEBUG=koa-views node index.js
 ```
 
 ### 部署配置
@@ -27,8 +27,9 @@ $ sudo npm i -g pm2
 
 # 安装 pm2-logrotate 插件并配置
 $ pm2 install pm2-logrotate
-$ pm2 set pm2-logrotate:max_size 100M        # 单个日志最大体积 100 MiB
+$ pm2 set pm2-logrotate:max_size 10M         # 单个日志最大体积 10 MiB
 $ pm2 set pm2-logrotate:compress true        # 对已轮转的日志进行压缩
+$ pm2 set pm2-logrotate:retain 7             # 最多保留 7 个日志
 
 # clone 项目并设置
 $ git clone git@github.com:Equim-chan/Home.git

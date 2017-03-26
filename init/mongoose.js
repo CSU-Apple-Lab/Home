@@ -13,4 +13,7 @@ const opts = {
 };
 
 const uri = `mongodb://${cfg_mongo.host}:${cfg_mongo.port}/${cfg_mongo.db}`;
-mongoose.connect(uri, opts);
+
+module.exports = (async () => {
+    await mongoose.connect(uri, opts);
+})();
