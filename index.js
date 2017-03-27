@@ -10,8 +10,8 @@ const { join } = require('path');
 (async () => {
     try {
         // 配置与初始化
-        require('./init/config');
-        await require('./init/mongoose');
+        global.config = require('./init/config').init();
+        await require('./init/mongoose').init();
 
         const app = new Koa();
         const router = new Router();
@@ -19,7 +19,10 @@ const { join } = require('path');
         // 设置模板引擎
         app.use(views(join(__dirname, '/views'), {
             extension: 'hbs',
-            map: { hbs: 'handlebars' }
+            map: { hbs: 'handlebars' },
+            options: {
+                partials: { layout: 'layout' }
+            }
         }));
 
         // 静态资源

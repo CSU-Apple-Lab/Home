@@ -8,7 +8,7 @@
 
 # clone 项目并设置
 $ git clone git@github.com:Equim-chan/Home.git
-$ npm i --production
+$ npm i
 $ cd Home/init
 $ cp config.example.js config.js
 $ vim config.js                              # 编辑配置文件，包含监听端口，MongoDB 端口及其用户验证等
@@ -53,7 +53,7 @@ $ pm2 start labHome.yml
 * [ ] ~~讨伐懒崇~~
 
 ### 后端
-* [ ] 解决 hbs 渲染问题
+* [x] 解决 hbs 渲染问题
 * [ ] 添加日志模块
 * [ ] 完善中间件
 
