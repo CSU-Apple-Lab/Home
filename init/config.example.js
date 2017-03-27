@@ -1,6 +1,6 @@
 'use strict';
 
-const configure = function () {
+const configure = () => {
     let port, host, mongo;
 
     switch (process.env.NODE_ENV) {
@@ -39,7 +39,6 @@ const configure = function () {
     };
 
     return config;
-}();
+};
 
-module.exports = configure;
-global.config = configure;
+exports.init = configure;

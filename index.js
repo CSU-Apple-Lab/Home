@@ -1,46 +1,57 @@
 'use strict';
 
 const Koa = require('koa');
-const views = require('koa-views');
+const hbs = require('koa-hbs');
 const serve = require('koa-static');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
-const { join } = require('path');
+const convert = require('koa-convert');
+const co = require('co');
+
+const initConfig = require('./init/config');
+const initMongoose = require('./init/mongoose');
 
 (async () => {
     try {
-        // 配置与初始化
-        global.config = require('./init/config').init();
-        await require('./init/mongoose').init();
+        // 初始化配置
+        global.config = initConfig.init();
+
+        // 初始化 Mongoose
+        await initMongoose.init();
 
         const app = new Koa();
-        const router = new Router();
 
         // 设置模板引擎
-        app.use(views(join(__dirname, '/views'), {
-            extension: 'hbs',
-            map: { hbs: 'handlebars' },
-            options: {
-                partials: { layout: 'layout' }
-            }
-        }));
+        app.use(convert(hbs.middleware({
+            viewPath: __dirname + '/views',
+            defaultLayout: 'layout'
+        })));
+        app.use(async (ctx, next) => {
+            const render = ctx.render;
+            ctx.render = async (...args) => co.call(ctx, render.apply(ctx, args));
+            await next();
+        });
 
         // 静态资源
-        app.use(serve(join(__dirname, '/public')));
+        app.use(serve(__dirname + '/public'));
 
         // Body parser
         app.use(bodyParser());
 
         // 设置路由
+        const router = Router();
         const index = require('./routes/index');
         const users = require('./routes/users');
-        const member = require('./routes/member');
+        const api = require('./routes/api');
         router.use('/', index.routes(), index.allowedMethods());
         router.use('/users', users.routes(), users.allowedMethods());
-        router.use('/member',member.routes(), member.allowedMethods());
-        app.use(router.routes());
+        router.use('/api',api.routes(), api.allowedMethods());
+        app.use(router.routes(), router.allowedMethods());
 
-        app.listen(global.config.system.port, global.config.system.host);
+        // 监听
+        const { port, host } = global.config.system;
+        app.listen(port, host);
+
     } catch (err) {
         console.error(err.stack);
     }

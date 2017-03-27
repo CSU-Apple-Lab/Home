@@ -15,7 +15,7 @@ $ vim config.js                              # 编辑配置文件，包含监听
 $ cd ..
 
 # 调试运行
-$ DEBUG=koa-views node index.js
+$ node index.js
 ```
 
 ### 部署配置
@@ -50,10 +50,10 @@ $ pm2 start labHome.yml
 ### 前端
 * [ ] 修复表单
 * [ ] 修复路由
-* [ ] ~~讨伐懒崇~~
 
 ### 后端
 * [x] 解决 hbs 渲染问题
+* [ ] 与前端对接 API 参数
 * [ ] 添加日志模块
 * [ ] 完善中间件
 
