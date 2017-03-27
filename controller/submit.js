@@ -25,14 +25,15 @@ exports.designer = async (ctx) => {
         };
         await Mongo.Designer.create(newDesigner);
         ctx.body = {
-            code: 200,
+            code: 0,
             message: 'Success'
-        }
+        };
     } catch (err) {
+        ctx.status = 400;
         ctx.body = {
             code: 1,
             message: 'Error: ' + err.message
-        }
+        };
     }
 };
 
@@ -60,14 +61,15 @@ exports.coder = async (ctx) => {
         };
         await Mongo.Coder.create(newCoder);
         ctx.body = {
-            code: 200,
+            code: 0,
             message: 'Success'
-        }
+        };
     } catch (err) {
+        ctx.status = 400;
         ctx.body = {
             code: 1,
             message: 'Error: ' + err.message
-        }
+        };
     }
 };
 
@@ -88,13 +90,14 @@ exports.pmer = async (ctx) => {
         };
         await Mongo.Pmer.create(newPmer);
         ctx.body = {
-            code: 200,
+            code: 0,
             message: 'Success'
-        }
+        };
     } catch (err) {
+        ctx.status = 400;
         ctx.body = {
             code: 1,
             message: 'Error: ' + err.message
-        }
+        };
     }
 };

@@ -55,7 +55,8 @@ $ pm2 start labHome.yml
 * [x] 解决 hbs 渲染问题
 * [ ] 与前端对接 API 参数
 * [ ] 添加日志模块
-* [ ] 完善中间件
+* [ ] 完善插入新数据前的查重与异常处理，将错误类型反馈到前端
+* [ ] 添加渲染 400, 404, 500 等页面的中间件
 
 ## Contributors
 [![Equim](https://avatars3.githubusercontent.com/u/17795845?v=3&s=100 "Equim")](https://github.com/Equim-chan)

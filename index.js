@@ -28,7 +28,7 @@ const initMongoose = require('./init/mongoose');
         })));
         app.use(async (ctx, next) => {
             const render = ctx.render;
-            ctx.render = async (...args) => co.call(ctx, render.apply(ctx, args));
+            ctx.render = (...args) => co.call(ctx, render.apply(ctx, args));
             await next();
         });
 
@@ -50,7 +50,7 @@ const initMongoose = require('./init/mongoose');
 
         // 监听
         const { port, host } = global.config.system;
-        app.listen(port, host);
+        app.listen(port, host);             // TODO: 输出监听成功的日志
 
     } catch (err) {
         console.error(err.stack);
