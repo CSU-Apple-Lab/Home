@@ -2,6 +2,8 @@
 
 const Koa = require('koa');
 const hbs = require('koa-hbs');
+const conditional = require('koa-conditional-get');
+const etag = require('koa-etag');
 const serve = require('koa-static');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
@@ -25,6 +27,10 @@ const initMongoose = require('./init/mongoose');
         if (process.env.NODE_ENV === 'development') {
             app.use(require('koa-logger')());
         }
+
+        // 设置 etag
+        app.use(conditional());
+        app.use(etag());
 
         // 设置模板引擎
         app.use(convert(hbs.middleware({
