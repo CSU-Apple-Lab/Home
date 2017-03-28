@@ -1,6 +1,16 @@
 {
   "name": "lab-home",
   "author": "cal-web-dept",
+  "description": "Offical site of CSU Apple Lab",
+  "homepage": "http://www.csuapple.com",
+  "private": true,
+  "repository": {
+    "trype": "git",
+    "url": "https://github.com/CSU-Apple-Lab/Home.git"
+  },
+  "engines": {
+    "node": ">=7.6.0"
+  },
   "version": "0.1.1",
   "scripts": {
     "start": "node index.js"
