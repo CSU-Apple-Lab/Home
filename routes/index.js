@@ -1,7 +1,6 @@
 'use strict';
 
 const router = require('koa-router')();
-const rf = require('fs').readFileSync;
 
 router.get('/', async (ctx) => {
     await ctx.render('index');
