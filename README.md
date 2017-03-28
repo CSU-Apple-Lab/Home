@@ -7,7 +7,7 @@
 # 假定已安装 Nodejs v7.6.0+ 和 MongoDB
 
 # clone 项目并设置
-$ git clone git@github.com:Equim-chan/Home.git
+$ git clone git@github.com:CSU-Apple-Lab/Home.git
 $ npm i
 $ cd Home/init
 $ cp config.example.js config.js
@@ -15,7 +15,7 @@ $ vim config.js                              # 编辑配置文件，包含监听
 $ cd ..
 
 # 调试运行
-$ node index.js
+$ NODE_ENV=development node index.js
 ```
 
 ### 部署配置
@@ -25,25 +25,26 @@ $ node index.js
 # 安装 pm2
 $ sudo npm i -g pm2
 
-# 安装 pm2-logrotate 插件并配置
-$ pm2 install pm2-logrotate
-$ pm2 set pm2-logrotate:max_size 10M         # 单个日志最大体积 10 MiB
-$ pm2 set pm2-logrotate:compress true        # 对已轮转的日志进行压缩
-$ pm2 set pm2-logrotate:retain 7             # 最多保留 7 个日志
-
 # clone 项目并设置
-$ git clone git@github.com:Equim-chan/Home.git
+$ git clone https://github.com/CSU-Apple-Lab/Home.git
 $ npm i --production
 $ cd Home/init
 $ cp config.example.js config.js
-$ vim config.js                              # 编辑配置文件，包含监听端口，MongoDB 端口及其用户验证等
+$ vim config.js                                     # 编辑配置文件，包含监听端口，MongoDB 端口及其用户验证等
 $ cd ..
 
 # 配置部署配置(可选)
 $ vim labHome.yml
 
+# Caddy 反向代理配置与部署(可选)
+# 假定已安装 Caddy 并已设置监听权限
+$ cp Caddyfile /home/www/caddy
+$ vim /home/www/caddy/Caddyfile                     # 修改端口、日志路径等
+$ vim caddy.yml                                     # 修改 Caddy 路径等
+$ pm2 start caddy.yml
+
 # 部署
-$ pm2 start labHome.yml
+$ pm2 start lab-home.yml
 ```
 
 ## TODO

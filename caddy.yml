@@ -1,0 +1,10 @@
+apps:
+  -
+    name: caddy
+    cwd: /home/www/caddy
+    script: caddy
+    args: -quiet
+    watch: true
+    exec_mode: fork
+    out_file: /dev/null
+    error_file: /dev/null

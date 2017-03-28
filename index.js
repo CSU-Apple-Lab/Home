@@ -21,6 +21,11 @@ const initMongoose = require('./init/mongoose');
 
         const app = new Koa();
 
+        // 设置调试日志
+        if (process.env.NODE_ENV === 'development') {
+            app.use(require('koa-logger')());
+        }
+
         // 设置模板引擎
         app.use(convert(hbs.middleware({
             viewPath: __dirname + '/views',

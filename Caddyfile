@@ -1,0 +1,26 @@
+www.csuapple.com:80 {
+    tls off                 # 崇哥说不要 HTTPS
+    proxy / localhost:2333
+    header / X-Powered-By "Koa"
+    timeouts 1m
+    gzip
+    log /var/log/caddy-access.log {
+        rotate {
+            size 10         # 单个日志最大体积 10 MiB
+            age 14          # 最多保留 14 天
+            keep 10         # 最多保留 10 个日志文件
+        }
+    }
+    errors {
+        404 /home/www/common/404.html
+        502 /home/www/common/502.html
+    }
+}
+
+*:80 {
+    status 502 /
+    errors {
+        404 /home/www/common/404.html
+        502 /home/www/common/502.html
+    }
+}
