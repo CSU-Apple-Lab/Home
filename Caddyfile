@@ -17,6 +17,11 @@ www.csuapple.com:80 {
     }
 }
 
+csuapple.com:80 {
+    tls off
+    redir http://www.csuapple.com
+}
+
 *:80 {
     status 502 /
     errors {
