@@ -32,6 +32,12 @@ const initMongoose = require('./init/mongoose');
         app.use(conditional());
         app.use(etag());
 
+        // 嘻嘻…
+        app.use(async (ctx, next) => {
+            ctx.set('X-Powered-By', 'Koa');
+            await next();
+        });
+
         // 设置模板引擎
         app.use(convert(hbs.middleware({
             viewPath: __dirname + '/views',

@@ -38,3 +38,7 @@ jspm_packages
 
 # Config
 config.js
+
+# Caddy
+Caddyfile
+caddy.yml

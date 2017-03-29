@@ -36,16 +36,20 @@ $ cd ..
 # 配置部署配置(可选)
 $ vim labHome.yml
 
-# Caddy 反向代理配置与部署(可选)
-# 假定已安装 Caddy 并已设置监听权限
-$ cp Caddyfile /home/www/caddy
-$ vim /home/www/caddy/Caddyfile                     # 修改端口、日志路径等
-$ vim caddy.yml                                     # 修改 Caddy 路径等
-$ pm2 start caddy.yml
-
 # 部署
 $ pm2 start lab-home.yml
 ```
+
+## Work with Caddy
+### Koa 负责的内容
+* 静态资源
+* 动态请求
+* 错误日志
+
+### Caddy 负责的内容
+* TLS (如果需要)
+* gzip
+* access 日志
 
 ## TODO
 ### 前端
