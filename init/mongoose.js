@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const configure = () => {
+exports.init = () => {
     const cfg_mongo = global.config.mongo;
     mongoose.Promise = global.Promise;
 
@@ -19,5 +19,3 @@ const configure = () => {
     // 返回一个 Promise
     return mongoose.connect(uri, opts);
 };
-
-exports.init = configure;
