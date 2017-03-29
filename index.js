@@ -17,7 +17,7 @@ const initMongoose = require('./init/mongoose');
 global.config = initConfig.init();
 
 // 初始化 Mongoose
-initMongoose.init();
+initMongoose.init().catch(err => console.error(err.stack));
 
 const app = new Koa();
 
