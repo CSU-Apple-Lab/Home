@@ -14,11 +14,14 @@ $ cp config.example.js config.js
 $ vim config.js                              # 编辑配置文件，包含监听端口，MongoDB 端口及其用户验证等
 $ cd ..
 
-# 进行测试
+# 进行单元测试
 $ npm test
 
+# 设置环境变量
+$ export NODE_ENV=development
+
 # 运行
-$ NODE_ENV=development node index.js
+$ node index.js
 ```
 
 ### 部署配置
@@ -36,8 +39,11 @@ $ cp config.example.js config.js
 $ vim config.js                                     # 编辑配置文件，包含监听端口，MongoDB 端口及其用户验证等
 $ cd ..
 
-# 进行针对生产环境的测试
-$ NODE_ENV=production npm test
+# 设置环境变量
+$ export NODE_ENV=production
+
+# 进行针对生产环境的单元测试
+$ npm test
 
 # 配置部署配置(可选)
 $ vim labHome.yml
@@ -50,6 +56,7 @@ $ pm2 start lab-home.yml
 ### Koa 负责的内容
 * 静态资源
 * 动态请求
+* ETag
 * 错误日志
 
 ### Caddy 负责的内容
