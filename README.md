@@ -14,7 +14,10 @@ $ cp config.example.js config.js
 $ vim config.js                              # 编辑配置文件，包含监听端口，MongoDB 端口及其用户验证等
 $ cd ..
 
-# 调试运行
+# 进行测试
+$ npm test
+
+# 运行
 $ NODE_ENV=development node index.js
 ```
 
@@ -32,6 +35,9 @@ $ cd Home/init
 $ cp config.example.js config.js
 $ vim config.js                                     # 编辑配置文件，包含监听端口，MongoDB 端口及其用户验证等
 $ cd ..
+
+# 进行针对生产环境的测试
+$ NODE_ENV=production npm test
 
 # 配置部署配置(可选)
 $ vim labHome.yml

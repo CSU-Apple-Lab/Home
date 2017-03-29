@@ -25,7 +25,7 @@ describe('Config Files', () => {
 
         config.should.have.property('system');
         config.system.host.should.not.be.empty;
-        config.system.port.should.be.a('number');
+        config.system.port.should.be.below(65536).and.be.above(0);
 
         config.should.have.property('mongo');
         global.config = config;
@@ -46,7 +46,7 @@ describe('Services', () => {
     });
 
     describe('Static Resources', () => {
-        it('should respond with code 200 when the file exsists', (done) => {
+        it('should respond with code 200 if the file exsists', (done) => {
             request
                 .get('/member.html')
                 .expect(200, done);
@@ -67,8 +67,8 @@ describe('Services', () => {
     });
 
     describe('APIs', () => {
-        it('should respond with code 200 when the request is valid');
-        it('should respond with code 400 when the request itself is malformed');
-        it('should respond with code 400 when the same record already exsists');
+        it('should respond with code 200 if the request is valid');
+        it('should respond with code 400 if the request itself is malformed');
+        it('should respond with code 400 if the same record already exsists');
     });
 });
