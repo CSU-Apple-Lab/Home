@@ -1,5 +1,7 @@
 'use strict';
 
+const startTime = new Date();
+
 const Koa = require('koa');
 const hbs = require('koa-hbs');
 const conditional = require('koa-conditional-get');
@@ -63,7 +65,14 @@ router.use('/users', users.routes(), users.allowedMethods());
 router.use('/api',api.routes(), api.allowedMethods());
 app.use(router.routes(), router.allowedMethods());
 
-// 监听
-app.listen(global.config.system);             // TODO: 输出监听成功的日志
+app.startUp = () => app.listen(global.config.system, () => {
+    console.log('\x1b[90mServer started up in \x1b[1;36m%d\x1b[90m ms. ' +
+                'Environment is \x1b[1;36m%s\x1b[90m. ' +
+                'Address: \x1b[1;36mhttp://%s:%s\x1b[0m',
+                new Date() - startTime,
+                process.env.NODE_ENV,
+                global.config.system.host,
+                global.config.system.port);
+});
 
 module.exports = app;

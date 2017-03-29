@@ -21,7 +21,7 @@ $ npm test
 $ export NODE_ENV=development
 
 # 运行
-$ node index.js
+$ node ./bin/www
 ```
 
 ### 部署配置

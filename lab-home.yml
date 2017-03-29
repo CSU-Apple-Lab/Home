@@ -1,7 +1,9 @@
 apps:
   -
     name: lab-home
-    script: index.js
+    script: ./bin/www
+    env:
+      NODE_ENV: production
     watch: true
     ignore_watch:
       - node_modules
@@ -9,8 +11,6 @@ apps:
       - logs
     exec_mode: cluster
     instances: 0
-    env:
-      NODE_ENV: production
     merge_logs: true
     out_file: /dev/null
-    error_file: logs/error.log
+    error_file: ./logs/error.log

@@ -1,6 +1,6 @@
 {
   "name": "lab-home",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "cal-web-dept",
   "description": "Offical site of CSU Apple Lab",
   "homepage": "http://www.csuapple.com",
@@ -13,7 +13,7 @@
     "node": ">=7.6.0"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./bin/www",
     "test": "mocha -R mochawesome"
   },
   "dependencies": {
