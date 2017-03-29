@@ -42,3 +42,6 @@ config.js
 # Caddy
 Caddyfile
 caddy.yml
+
+# Test reports
+mochawesome-reports

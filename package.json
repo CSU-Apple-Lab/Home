@@ -1,5 +1,6 @@
 {
   "name": "lab-home",
+  "version": "0.1.2",
   "author": "cal-web-dept",
   "description": "Offical site of CSU Apple Lab",
   "homepage": "http://www.csuapple.com",
@@ -11,9 +12,9 @@
   "engines": {
     "node": ">=7.6.0"
   },
-  "version": "0.1.1",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "mocha -R mochawesome"
   },
   "dependencies": {
     "co": "^4.6.0",
@@ -28,7 +29,11 @@
     "mongoose": "^4.9.1"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
     "koa-logger": "^2.0.1",
+    "mocha": "^3.2.0",
+    "mochawesome": "^2.0.4",
     "supertest": "^3.0.0"
   }
 }
