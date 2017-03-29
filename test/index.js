@@ -1,7 +1,5 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
 const supertest = require('supertest');
 const chai = require('chai');
 const chaiAsPromised = require("chai-as-promised");
@@ -10,26 +8,34 @@ chai.use(chaiAsPromised);
 chai.should();
 
 describe('Config Files', () => {
+    const fs = require('fs');
+    const path = require('path');
+    const http = require('http');
     const mongoose = require('mongoose');
 
     const initConfigPath = path.resolve(__dirname, '../init/config.js');
     const initMongoosePath = path.resolve(__dirname, '../init/mongoose.js');
 
-    it('should have config files', () => {
+    it('should exsist and should be accessible', () => {
         fs.accessSync(initConfigPath);
         fs.accessSync(initMongoosePath);
     });
 
-    it('should have valid config files', () => {
+    it('should be valid', (done) => {
         const config = require(initConfigPath).init();
 
+        // 测试 port 和 host 是否合法
         config.should.have.property('system');
-        config.system.host.should.not.be.empty;
-        config.system.port.should.be.below(65536).and.be.above(0);
+        http.createServer().listen(config.system.port, config.system.host, function (err) {
+            if (err) return done(err);
+            this.close();
 
-        config.should.have.property('mongo');
-        global.config = config;
-        return require(initMongoosePath).init().should.be.fulfilled;
+            // 测试 mongo 配置是否合法
+            config.should.have.property('mongo');
+            config.mongo.db.should.not.be.empty;
+            global.config = config;
+            require(initMongoosePath).init().should.be.fulfilled.and.notify(done);
+        });
     });
 
     after((done) => {
@@ -39,6 +45,8 @@ describe('Config Files', () => {
 });
 
 describe('Services', () => {
+    // 因为上面那个单元会占用 mongo 的连接，而测试又是异步的
+    // 如果不加 before 的话，异步导入 app 的时候 mongo 会拒绝连接
     let request;
     before(() => {
         const app = require('..');
@@ -52,7 +60,7 @@ describe('Services', () => {
                 .expect(200, done);
         });
 
-        it('should have a favicon', (done) => {
+        it('should contain a favicon', (done) => {
             request
                 .get('/favicon.ico')
                 .expect(200, done);
