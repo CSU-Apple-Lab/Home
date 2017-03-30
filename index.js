@@ -22,26 +22,26 @@ initMongoose.init().catch(err => console.error(err.stack));
 
 const app = new Koa();
 
-// 错误处理
+// 异常处理
 app.use(async (ctx, next) => {
     try {
         await next();
-        const status = ctx.status || 404;
-        if (status === 404) {
+        if (!ctx.status || ctx.status === 404) {
             ctx.throw(404);
         }
     } catch (err) {
-        ctx.status = err.status || 500;
-        switch (parseInt(ctx.status)) {
+        ctx.status = parseInt(err.status) || 500;
+        switch (ctx.status) {
             case 404:
-                await send(ctx, './public/404.html');       // __dirname + ... 是无效的
+                await send(ctx, 'public/404.html');       // __dirname + ... 是无效的
                 break;
 
             case 400:
+                break;
 
             case 500:
             default:
-                await send(ctx, './public/500.html');
+                await send(ctx, 'public/500.html');
                 break;
         }
     }

@@ -60,18 +60,31 @@ describe('Services', () => {
                 .expect(200, done);
         });
 
+        it('should serve a 404 page if the file does not exsist', (done) => {
+            request
+                .get('/nononoplsbakabakabaaaaka')
+                .expect(404)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    res.headers['content-type'].should.match(/text\/html;/i);
+                    done();
+                });
+        });
+
         it('should render correctly', (done) => {
             request
                 .get('/')
                 .expect(200)
                 .end((err, res) => {
                     if (err) return done(err);
-                    /<head>.+<\/head>/.test(res).should.be.ok;
-                    /<body>.+<\/body>/.test(res).should.be.ok;
-                })
+                    res.text.should.not.be.empty;
+                    res.text.should.not.match(/<head>[\s]+<\/head>/i);
+                    res.text.should.not.match(/<body>[\s]+<\/body>/i);
+                    done();
+                });
         });
 
-        it('should contain a favicon', (done) => {
+        it('should serve a favicon', (done) => {
             request
                 .get('/favicon.ico')
                 .expect(200, done);
