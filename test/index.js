@@ -53,11 +53,22 @@ describe('Services', () => {
         request = supertest(app.listen());
     });
 
-    describe('Static Resources', () => {
+    describe('static resources', () => {
         it('should respond with code 200 if the file exsists', (done) => {
             request
                 .get('/member.html')
                 .expect(200, done);
+        });
+
+        it('should render correctly', (done) => {
+            request
+                .get('/')
+                .expect(200)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    /<head>.+<\/head>/.test(res).should.be.ok;
+                    /<body>.+<\/body>/.test(res).should.be.ok;
+                })
         });
 
         it('should contain a favicon', (done) => {

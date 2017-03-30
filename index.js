@@ -6,6 +6,7 @@ const Koa = require('koa');
 const hbs = require('koa-hbs');
 const conditional = require('koa-conditional-get');
 const etag = require('koa-etag');
+const send = require('koa-send');
 const serve = require('koa-static');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
@@ -20,6 +21,31 @@ global.config = initConfig.init();
 initMongoose.init().catch(err => console.error(err.stack));
 
 const app = new Koa();
+
+// 错误处理
+app.use(async (ctx, next) => {
+    try {
+        await next();
+        const status = ctx.status || 404;
+        if (status === 404) {
+            ctx.throw(404);
+        }
+    } catch (err) {
+        ctx.status = err.status || 500;
+        switch (parseInt(ctx.status)) {
+            case 404:
+                await send(ctx, __dirname + '/public/404.html');
+                break;
+
+            case 400:
+
+            case 500:
+            default:
+                await send(ctx, __dirname + '/public/500.html');
+                break;
+        }
+    }
+});
 
 // 设置调试日志
 if (process.env.NODE_ENV === 'development') {

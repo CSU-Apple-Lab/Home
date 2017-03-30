@@ -33,7 +33,7 @@ $ sudo npm i -g pm2
 
 # clone 项目并设置
 $ git clone https://github.com/CSU-Apple-Lab/Home.git
-$ npm i --production
+$ npm i
 $ cd Home/init
 $ cp config.example.js config.js
 $ vim config.js                                     # 编辑配置文件，包含监听端口，MongoDB 端口及其用户验证等
@@ -74,7 +74,7 @@ $ pm2 start lab-home.yml
 * [ ] 与前端对接 API 参数
 * [ ] 添加日志模块
 * [ ] 完善插入新数据前的查重与异常处理，将错误类型反馈到前端
-* [ ] 添加渲染 400, 404, 500 等页面的中间件
+* [x] 添加渲染 400, 404, 500 等页面的中间件
 
 ## Contributors
 [![Equim](https://avatars3.githubusercontent.com/u/17795845?v=3&s=100 "Equim")](https://github.com/Equim-chan)
