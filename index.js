@@ -34,14 +34,14 @@ app.use(async (ctx, next) => {
         ctx.status = err.status || 500;
         switch (parseInt(ctx.status)) {
             case 404:
-                await send(ctx, __dirname + '/public/404.html');
+                await send(ctx, './public/404.html');       // __dirname + ... 是无效的
                 break;
 
             case 400:
 
             case 500:
             default:
-                await send(ctx, __dirname + '/public/500.html');
+                await send(ctx, './public/500.html');
                 break;
         }
     }
