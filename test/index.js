@@ -99,8 +99,56 @@ describe('Services', () => {
     });
 
     describe('APIs', () => {
-        it('should respond with code 200 if the request is valid');
-        it('should respond with code 400 if the request itself is malformed');
-        it('should respond with code 400 if the same record already exsists');
+        const { Pmer } = require('../model');
+
+        let randomID = Math.ceil((Math.random() * 8999999999999999 + 1000000000000000)).toString();
+
+        it('should respond with code 200 if the request is valid', (done) => {
+            request
+                .post('/api/submit-pmer')
+                .send({
+                    "name": "萌萌的测试员",
+                    "class": "计科1502",
+                    "id": randomID,
+                    "email": "sayaka@ekyu.moe",
+                    "grade": "大三",
+                    "gender": "女",
+                    "phone": "15675884010",
+                    "skill": "我会单元测试！",
+                    "introduce": "然而只会单元测试qwq"
+                })
+                .expect(200)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    JSON.parse(res.text).code.should.be.equal(0);
+                    done();
+                });
+        });
+
+        it('should respond with code 400 if the same record already exsists', (done) => {
+            request
+                .post('/api/submit-pmer')
+                .send({
+                    "name": "萌萌的测试员",
+                    "class": "计科1502",
+                    "id": randomID,
+                    "email": "sayaka@ekyu.moe",
+                    "grade": "大三",
+                    "gender": "女",
+                    "phone": "15675884010",
+                    "skill": "我会单元测试！",
+                    "introduce": "然而只会单元测试qwq"
+                })
+                .expect(400)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    JSON.parse(res.text).code.should.be.equal(2);
+                    done();
+                });
+        });
+
+        after((done) => {
+            Pmer.findOneAndRemove(randomID, done);
+        });
     });
 });
