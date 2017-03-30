@@ -65,7 +65,8 @@ app.use(async (ctx, next) => {
 // 设置模板引擎
 app.use(hbs.middleware({
     viewPath: __dirname + '/views',
-    defaultLayout: 'layout'
+    defaultLayout: 'layout',
+    partialsPath: __dirname + '/views/partials'
 }));
 
 // 静态资源
