@@ -333,7 +333,7 @@ var member = new Vue({
             {
                 name:'Zpnaruto',
                 src:'http://of8t6pu0g.bkt.clouddn.com/team6.jpg',
-                text:'16级，前端。主页：www.zpnaruto.cn/',
+                text:'14级，前端。主页：www.zpnaruto.cn/',
                 url:''
 
             },

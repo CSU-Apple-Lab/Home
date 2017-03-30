@@ -45,3 +45,8 @@ caddy.yml
 
 # Test reports
 mochawesome-reports
+
+# Jetbrain env settings
+.idea
+
+.DS_Store
