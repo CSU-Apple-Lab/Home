@@ -10,7 +10,7 @@ Content-Type: application/json;charset=UTF-8
 ```js
 {
     "name": "萌小天", // 姓名
-    "class" "计科1402", // 班级
+    "class": "计科1402", // 班级
     "id": "0902140229", // 学号
     "email": "nuptunee@gamil.com", // Email
     "grade": "大三", // 年级
@@ -26,11 +26,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-## hr-designer 
+## hr-designer
 ```js
 {
     "name": "萌小天", // 姓名
-    "class" "计科1402", // 班级
+    "class": "计科1402", // 班级
     "id": "0902140229", // 学号
     "email": "nuptunee@gamil.com", // Email
     "grade": "大三", // 年级
@@ -49,7 +49,7 @@ Content-Type: application/json;charset=UTF-8
 ```js
 {
     "name": "萌小天", // 姓名
-    "class" "计科1402", // 班级
+    "class": "计科1402", // 班级
     "id": "0902140229", // 学号
     "email": "nuptunee@gamil.com", // Email
     "grade": "大三", // 年级

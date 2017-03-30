@@ -1,29 +1,40 @@
 'use strict';
 
-const Mongo = require('../model');
+const { Designer, Coder, Pmer } = require('../model');
 
 exports.designer = async (ctx) => {
     try {
         const form = ctx.request.body;
+        const findOnePromise = Designer.findOne({ studentId: form.id }).exec();
+
         const newDesigner = {
-            name: 'PENDING',
-            class: 'PENDING',
-            studentId: 'PENDING',
-            email: 'PENDING',
-            grade: 'PENDING',
-            gender: 'PENDING',
+            name: form.name,
+            class: form.class,
+            studentId: form.id,
+            email: form.email,
+            grade: form.grade,
+            gender: form.gender,
             qq: 'PENDING',
-            phone: 'PENDING',
+            phone: form.phone,
             dsgnExperience: {
-                general: 'PENDING',
-                ui: 'PENDING',
-                haveWorks: 'PENDING',
-                knowSpec: 'PENDING',
+                general: form.designExp,
+                ui: form.uiExp,
+                haveWorks: form.zcoolExp,
+                knowSpec: form.mdExp,
             },
-            skill: 'PENDING',
-            selfIntro: 'PENDING'
+            skill: form.skill,
+            selfIntro: form.introduce
         };
-        await Mongo.Designer.create(newDesigner);
+
+        // 已存在相同学号的记录
+        if (await findOnePromise) {
+            const err = {
+                code: 2,
+                message: 'A record with the same student ID already exists'
+            };
+            throw err;
+        }
+        await Designer.create(newDesigner);
         ctx.body = {
             code: 0,
             message: 'Success'
@@ -31,7 +42,7 @@ exports.designer = async (ctx) => {
     } catch (err) {
         ctx.status = 400;
         ctx.body = {
-            code: 1,
+            code: err.code || 1,
             message: 'Error: ' + err.message
         };
     }
@@ -40,26 +51,36 @@ exports.designer = async (ctx) => {
 exports.coder = async (ctx) => {
     try {
         const form = ctx.request.body;
+        const findOnePromise = Coder.findOne({ studentId: form.id }).exec();
+
         const newCoder = {
-            name: 'PENDING',
-            class: 'PENDING',
-            studentId: 'PENDING',
-            email: 'PENDING',
-            grade: 'PENDING',
-            gender: 'PENDING',
+            name: form.name,
+            class: form.class,
+            studentId: form.id,
+            email: form.email,
+            grade: form.grade,
+            gender: form.gender,
             qq: 'PENDING',
-            preferenceGroup: 'PENDING',
-            phone: 'PENDING',
+            preferenceGroup: form.part,
+            phone: form.phone,
             devExperience: {
-                software: 'PENDING',
-                mobile: 'PENDING',
-                web: 'PENDING',
-                acm: 'PENDING',
+                software: form.softwareExp,
+                mobile: form.mobileExp,
+                web: form.webExp,
+                acm: form.otherExp,
             },
-            skill: 'PENDING',
-            selfIntro: 'PENDING'
+            skill: form.skill,
+            selfIntro: form.introduce
         };
-        await Mongo.Coder.create(newCoder);
+
+        if (await findOnePromise) {
+            const err = {
+                code: 2,
+                message: 'A record with the same student ID already exists'
+            };
+            throw err;
+        }
+        await Coder.create(newCoder);
         ctx.body = {
             code: 0,
             message: 'Success'
@@ -67,7 +88,7 @@ exports.coder = async (ctx) => {
     } catch (err) {
         ctx.status = 400;
         ctx.body = {
-            code: 1,
+            code: err.code || 1,
             message: 'Error: ' + err.message
         };
     }
@@ -76,19 +97,29 @@ exports.coder = async (ctx) => {
 exports.pmer = async (ctx) => {
     try {
         const form = ctx.request.body;
+        const findOnePromise = Pmer.findOne({ studentId: form.id }).exec();
+
         const newPmer = {
-            name: 'PENDING',
-            class: 'PENDING',
-            studentId: 'PENDING',
-            email: 'PENDING',
-            grade: 'PENDING',
-            gender: 'PENDING',
+            name: form.name,
+            class: form.class,
+            studentId: form.id,
+            email: form.email,
+            grade: form.grade,
+            gender: form.gender,
             qq: 'PENDING',
-            phone: 'PENDING',
-            skill: 'PENDING',
-            selfIntro: 'PENDING'
+            phone: form.phone,
+            skill: form.skill,
+            selfIntro: form.introduce
         };
-        await Mongo.Pmer.create(newPmer);
+
+        if (await findOnePromise) {
+            const err = {
+                code: 2,
+                message: 'A record with the same student ID already exists'
+            };
+            throw err;
+        }
+        await Pmer.create(newPmer);
         ctx.body = {
             code: 0,
             message: 'Success'
@@ -96,7 +127,7 @@ exports.pmer = async (ctx) => {
     } catch (err) {
         ctx.status = 400;
         ctx.body = {
-            code: 1,
+            code: err.code || 1,
             message: 'Error: ' + err.message
         };
     }
