@@ -101,7 +101,7 @@ describe('Services', () => {
     describe('APIs', () => {
         const { Pmer } = require('../model');
 
-        let randomID = Math.ceil((Math.random() * 8999999999999999 + 1000000000000000)).toString();
+        const randomID = Math.floor((Math.random() * 8999999999999999 + 1000000000000000)).toString();
 
         it('should respond with code 200 if the request is valid', (done) => {
             request
