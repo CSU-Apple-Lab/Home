@@ -56,7 +56,7 @@ describe('Services', () => {
     describe('static resources', () => {
         it('should respond with code 200 if the file exsists', (done) => {
             request
-                .get('/member.html')
+                .get('/member')
                 .expect(200, done);
         });
 
