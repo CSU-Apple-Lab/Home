@@ -9,8 +9,6 @@ const etag = require('koa-etag');
 const serve = require('koa-static');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
-const convert = require('koa-convert');
-const co = require('co');
 
 const initConfig = require('./init/config');
 const initMongoose = require('./init/mongoose');
@@ -39,15 +37,10 @@ app.use(async (ctx, next) => {
 });
 
 // 设置模板引擎
-app.use(convert(hbs.middleware({
+app.use(hbs.middleware({
     viewPath: __dirname + '/views',
     defaultLayout: 'layout'
-})));
-app.use(async (ctx, next) => {
-    const render = ctx.render;
-    ctx.render = (...args) => co.call(ctx, render.apply(ctx, args));
-    await next();
-});
+}));
 
 // 静态资源
 app.use(serve(__dirname + '/public'));
