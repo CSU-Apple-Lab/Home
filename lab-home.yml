@@ -6,6 +6,7 @@ apps:
       NODE_ENV: production
     watch: true
     ignore_watch:
+      - .git
       - node_modules
       - public
       - logs

@@ -14,7 +14,8 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha -R mochawesome"
+    "test": "mocha -R mochawesome",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- -R mochawesome"
   },
   "dependencies": {
     "koa": "^2.2.0",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "istanbul": "^1.1.0-alpha.1",
     "koa-logger": "^2.0.1",
     "mocha": "^3.2.0",
     "mochawesome": "^2.0.4",
