@@ -91,11 +91,18 @@ describe('Services', () => {
         .expect(200, done);
     });
 
-    it('should respond with an etag header', (done) => {
+    it('should respond with an etag header that works', (done) => {
       request
         .get('/')
         .expect(200)
-        .expect('etag', /^.+$/, done);
+        .expect('etag', /^.+$/)
+        .end((err, res) => {
+          if (err) return done(err);
+          request
+            .get('/')
+            .set('If-None-Match', res.header.etag)
+            .expect(304, done);
+        });
     });
   });
 

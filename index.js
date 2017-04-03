@@ -54,7 +54,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // 设置 etag
 app.use(conditional());
-app.use(etag());
+app.use(etag({ weak: true }));
 
 // 嘻嘻…
 app.use(async (ctx, next) => {
