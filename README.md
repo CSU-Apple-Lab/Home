@@ -1,4 +1,7 @@
 # :apple: Our Home :heart:
+![dependancy](https://img.shields.io/david/CSU-Apple-Lab/Home.svg)
+![devDependancy](https://img.shields.io/david/dev/CSU-Apple-Lab/Home.svg)
+
 ## Setup
 无论是开发还是部署，都要先安装 Nodejs (v7.6.0 以上版本)和 MongoDB。
 

@@ -14,6 +14,7 @@
   },
   "scripts": {
     "start": "node ./bin/www",
+    "lint": "eslint --fix .",
     "test": "mocha -R mochawesome",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- -R mochawesome"
   },
@@ -31,6 +32,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1",
     "istanbul": "^1.1.0-alpha.1",
     "koa-logger": "^2.0.1",
     "mocha": "^3.2.0",

@@ -3,19 +3,19 @@
 const mongoose = require('mongoose');
 
 exports.init = () => {
-    const cfg_mongo = global.config.mongo;
-    mongoose.Promise = global.Promise;
+  const cfgMongo = global.config.mongo;
+  mongoose.Promise = global.Promise;
 
-    const opts = {
-        user: cfg_mongo.user,
-        pass: cfg_mongo.pass,
-        auth:{
-            authdb: cfg_mongo.db
-        }
-    };
+  const opts = {
+    user: cfgMongo.user,
+    pass: cfgMongo.pass,
+    auth: {
+      authdb: cfgMongo.db,
+    },
+  };
 
-    const uri = `mongodb://${ cfg_mongo.host }:${ cfg_mongo.port }/${ cfg_mongo.db }`;
+  const uri = `mongodb://${ cfgMongo.host }:${ cfgMongo.port }/${ cfgMongo.db }`;
 
     // 返回一个 Promise
-    return mongoose.connect(uri, opts);
+  return mongoose.connect(uri, opts);
 };
