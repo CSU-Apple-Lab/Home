@@ -24,18 +24,19 @@ describe('Config Files', () => {
   it('should be valid', (done) => {
     const config = require(initConfigPath).init();
 
-        // 测试 port 和 host 是否合法
+    // 测试 port 和 host 是否合法
     config.should.have.property('system');
-    http.createServer().listen(config.system.port, config.system.host, function(err) {
-      if (err) return done(err);
-      this.close();
+    http.createServer()
+      .listen(config.system.port, config.system.host, function(err) {
+        if (err) return done(err);
+        this.close();
 
-            // 测试 mongo 配置是否合法
-      config.should.have.property('mongo');
-      config.mongo.db.should.not.be.empty;
-      global.config = config;
-      require(initMongoosePath).init().should.be.fulfilled.and.notify(done);
-    });
+        // 测试 mongo 配置是否合法
+        config.should.have.property('mongo');
+        config.mongo.db.should.not.be.empty;
+        global.config = config;
+        require(initMongoosePath).init().should.be.fulfilled.and.notify(done);
+      });
   });
 
   after((done) => {
@@ -56,45 +57,45 @@ describe('Services', () => {
   describe('static resources', () => {
     it('should respond with code 200 if the file exsists', (done) => {
       request
-                .get('/member')
-                .expect(200, done);
+        .get('/member')
+        .expect(200, done);
     });
 
     it('should serve a 404 page if the file does not exsist', (done) => {
       request
-                .get('/nononoplsbakabakabaaaaka')
-                .expect(404)
-                .end((err, res) => {
-                  if (err) return done(err);
-                  res.headers['content-type'].should.match(/text\/html;/i);
-                  done();
-                });
+        .get('/nononoplsbakabakabaaaaka')
+        .expect(404)
+        .end((err, res) => {
+          if (err) return done(err);
+          res.headers['content-type'].should.match(/text\/html;/i);
+          done();
+        });
     });
 
     it('should render correctly', (done) => {
       request
-                .get('/')
-                .expect(200)
-                .end((err, res) => {
-                  if (err) return done(err);
-                  res.text.should.not.be.empty;
-                  res.text.should.not.match(/<head>[\s]+<\/head>/i);
-                  res.text.should.not.match(/<body>[\s]+<\/body>/i);
-                  done();
-                });
+        .get('/')
+        .expect(200)
+        .end((err, res) => {
+          if (err) return done(err);
+          res.text.should.not.be.empty;
+          res.text.should.not.match(/<head>[\s]+<\/head>/i);
+          res.text.should.not.match(/<body>[\s]+<\/body>/i);
+          done();
+        });
     });
 
     it('should serve a favicon', (done) => {
       request
-                .get('/favicon.ico')
-                .expect(200, done);
+        .get('/favicon.ico')
+        .expect(200, done);
     });
 
     it('should respond with an etag header', (done) => {
       request
-                .get('/')
-                .expect(200)
-                .expect('etag', /^.+$/, done);
+        .get('/')
+        .expect(200)
+        .expect('etag', /^.+$/, done);
     });
   });
 
@@ -105,46 +106,46 @@ describe('Services', () => {
 
     it('should respond with code 200 if the request is valid', (done) => {
       request
-                .post('/api/submit-pmer')
-                .send({
-                  'name': '萌萌的测试员',
-                  'class': '计科1502',
-                  'id': randomID,
-                  'email': 'sayaka@ekyu.moe',
-                  'grade': '大三',
-                  'gender': '女',
-                  'phone': '15675884010',
-                  'skill': '我会单元测试！',
-                  'introduce': '然而只会单元测试qwq',
-                })
-                .expect(200)
-                .end((err, res) => {
-                  if (err) return done(err);
-                  JSON.parse(res.text).code.should.be.equal(0);
-                  done();
-                });
+        .post('/api/submit-pmer')
+        .send({
+          'name': '萌萌的测试员',
+          'class': '计科1502',
+          'id': randomID,
+          'email': 'sayaka@ekyu.moe',
+          'grade': '大三',
+          'gender': '女',
+          'phone': '15675884010',
+          'skill': '我会单元测试！',
+          'introduce': '然而只会单元测试qwq',
+        })
+        .expect(200)
+        .end((err, res) => {
+          if (err) return done(err);
+          JSON.parse(res.text).code.should.be.equal(0);
+          done();
+        });
     });
 
     it('should respond with code 400 if the same record already exsists', (done) => {
       request
-                .post('/api/submit-pmer')
-                .send({
-                  'name': '萌萌的测试员',
-                  'class': '计科1502',
-                  'id': randomID,
-                  'email': 'sayaka@ekyu.moe',
-                  'grade': '大三',
-                  'gender': '女',
-                  'phone': '15675884010',
-                  'skill': '我会单元测试！',
-                  'introduce': '然而只会单元测试qwq',
-                })
-                .expect(400)
-                .end((err, res) => {
-                  if (err) return done(err);
-                  JSON.parse(res.text).code.should.be.equal(2);
-                  done();
-                });
+        .post('/api/submit-pmer')
+        .send({
+          'name': '萌萌的测试员',
+          'class': '计科1502',
+          'id': randomID,
+          'email': 'sayaka@ekyu.moe',
+          'grade': '大三',
+          'gender': '女',
+          'phone': '15675884010',
+          'skill': '我会单元测试！',
+          'introduce': '然而只会单元测试qwq',
+        })
+        .expect(400)
+        .end((err, res) => {
+          if (err) return done(err);
+          JSON.parse(res.text).code.should.be.equal(2);
+          done();
+        });
     });
 
     after((done) => {
