@@ -27,7 +27,7 @@ describe('Config Files', () => {
     // 测试 port 和 host 是否合法
     config.should.have.property('system');
     http.createServer()
-      .listen(config.system.port, config.system.host, function(err) {
+      .listen(config.system.port, config.system.host, function (err) {
         if (err) return done(err);
         this.close();
 
@@ -156,7 +156,7 @@ describe('Services', () => {
     });
 
     after((done) => {
-      Pmer.findOneAndRemove(randomID, done);
+      Pmer.findOneAndRemove({ studentId: randomID }, done);
     });
   });
 });
