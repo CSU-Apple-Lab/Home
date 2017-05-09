@@ -60,7 +60,7 @@ exports.coder = async (ctx) => {
       email: form.email,
       grade: form.grade,
       gender: form.gender,
-      qq: 'PENDING',
+      qq: form.qq,
       preferenceGroup: form.part,
       phone: form.phone,
       devExperience: {

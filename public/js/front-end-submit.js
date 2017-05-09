@@ -17,7 +17,7 @@ $("form").submit(function(ev) {
             email: $("#form_email").val(),
             grade: $("#form_grade").val(),
             gender: $("#form_gender").val(),
-            qq: "PENDING",                    // no input
+            qq: $("#form_qq").val(),
             part: $("#form_part").val(),
             phone: $("#form_phone").val(),
             softwareExp: $("#form_softwareExp").val(),

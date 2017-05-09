@@ -50,3 +50,6 @@ mochawesome-reports
 .idea
 
 .DS_Store
+
+# mochawesom
+mochawesome-report
