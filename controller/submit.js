@@ -14,7 +14,7 @@ exports.designer = async (ctx) => {
       email: form.email,
       grade: form.grade,
       gender: form.gender,
-      qq: 'PENDING',
+      qq: form.qq,
       phone: form.phone,
       dsgnExperience: {
         general: form.designExp,
@@ -106,7 +106,7 @@ exports.pmer = async (ctx) => {
       email: form.email,
       grade: form.grade,
       gender: form.gender,
-      qq: 'PENDING',
+      qq: form.qq,
       phone: form.phone,
       skill: form.skill,
       selfIntro: form.introduce,

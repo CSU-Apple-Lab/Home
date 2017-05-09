@@ -83,6 +83,7 @@ $ pm2 start lab-home.yml
 [![Equim](https://avatars3.githubusercontent.com/u/17795845?v=3&s=100 "Equim")](https://github.com/Equim-chan)
 [![Zijin Xiao](https://avatars3.githubusercontent.com/u/4846135?v=3&s=100 "Zijin Xiao")](https://github.com/jxpxxzj)
 [![Bugzhang](https://avatars2.githubusercontent.com/u/9525158?v=3&s=100 "Bugzhang")](https://github.com/rhythm1995)
+[![长门有希](https://avatars3.githubusercontent.com/u/21074571?v=3&s=100 "长门有希")](https://github.com/Yuki-Nagato)
 
 ## Powered by
 [![CSU Apple Lab](https://avatars1.githubusercontent.com/u/23062358?v=3&s=100 "CSU Apple Lab")](https://github.com/CSU-Apple-Lab)

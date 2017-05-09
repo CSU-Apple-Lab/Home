@@ -3,25 +3,25 @@
 	<div class="gtco-container">
 		<div class="row col-md-10 col-lg-offset-1">
 			<h3>请认真填写以下报名内容，确保信息真实有效。</h3>
-			<form action="/member/submit" method="post">
+			<form>
 				<div class="row form-group">
 					<div class="col-md-6">
 						<label for="form_name">姓名</label>
-						<input type="text" id="form_name" name="name" class="form-control" placeholder="如：萌小天">
+						<input type="text" id="form_name" name="name" class="form-control" placeholder="如：萌小天" required>
 					</div>
 					<div class="col-md-6">
 						<label for="form_class">班级</label>
-						<input type="text" id="form_class" name="class" class="form-control" placeholder="如：计科1402">
+						<input type="text" id="form_class" name="class" class="form-control" placeholder="如：计科1402" required>
 					</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-md-6">
 						<label for="form_id">学号</label>
-						<input type="text" id="form_id" name="id" class="form-control" placeholder="如：0902140229">
+						<input type="text" id="form_id" name="id" class="form-control" placeholder="如：0902140229" required>
 					</div>
 					<div class="col-md-6">
 						<label for="form_email">Email</label>
-						<input type="text" id="form_email" name="email" class="form-control" placeholder="如：nuptunee@gamil.com">
+						<input type="text" id="form_email" name="email" class="form-control" placeholder="如：nuptunee@gamil.com" required>
 					</div>
 				</div>
 				<div class="row form-group">
@@ -101,7 +101,7 @@
 				<div class="form-group">
 					<input type="submit" value="提交" class="btn btn-primary">
 				</div>
-			</form>		
+			</form>
 		</div>
 	</div>
 </div>
