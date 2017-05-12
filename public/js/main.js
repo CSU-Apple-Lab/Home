@@ -290,61 +290,70 @@ var member = new Vue({
     el:'#member',
     data:{
         members:[
-            {
-                name:'鲁鸣鸣',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team1.jpg',
-                text:'中南大学副教授，Citrix公司前高级工程师，研究计算机网络与信息安全',
-                url:''
-            },
-            {
+	    {
                 name:'谢帅',
                 src:'http://of8t6pu0g.bkt.clouddn.com/team2.jpg',
-                text:'14级，中南大学图灵班首任班长，python与机器学习',
+                text:'14级，中南大学图灵班首任班长，python与机器学习，实验室早期负责人与建设者（献花）',
                 url:''
             },
             {
                 name:'JustZht',
                 src:'http://of8t6pu0g.bkt.clouddn.com/team3.jpg',
-                text:'14级，ios与unity开发，目前在百度实习，个人主页：justzht.com',
+                text:'又叫萌天，14级，ios与unity开发，目前在百度做ios/unity开发，个人主页：justzht.com',
                 url:'http://www.justzht.com/'
 
             },
-            {
+	    {
+                name:'鲁鸣鸣 教授',
+                src:'http://of8t6pu0g.bkt.clouddn.com/team1.jpg',
+                text:'中南大学副教授，Citrix公司前高级工程师，研究计算机网络与信息安全',
+                url:''
+            },
+	    {
                 name:'张伏旭',
                 src:'http://of8t6pu0g.bkt.clouddn.com/team-zhangfuxu.jpg',
                 text:'13级，苹果移动应用创新赛一等奖并与苹果CEU库克会面，目前研究人工智能',
                 url:''
 
             },
+	    {
+                name:'Zpnaruto',
+                src:'http://of8t6pu0g.bkt.clouddn.com/team6.jpg',
+                text:'14级，又叫gay平，在腾讯做前端实习。个人主页：www.zpnaruto.cn/',
+                url:''
+	    },
             {
                 name:'Bugzhang',
                 src:'http://of8t6pu0g.bkt.clouddn.com/team4.jpg',
-                text:'14级，前端，国内开源组织开源社成员，个人主页：bugzhang.com',
+                text:'崇哥，14级，在深信服做前端，个人主页：bugzhang.com',
                 url:'http://www.bugzhang.com/'
 
             },
             {
                 name:'JasonVon',
                 src:'http://of8t6pu0g.bkt.clouddn.com/team5.jpg',
-                text:'14级，升华网现任总监，php、c++后端开发。',
+                text:'14级，升华网前总监（后来大家都叫他“总监”），百度测试，同时熟悉php等后端技术。',
                 url:''
-
+            },
+	    {
+                name:'jxpxxzj',
+                src:'http://of8t6pu0g.bkt.clouddn.com/team-xiaozijin.jpg',
+                text:'jx菊苣！真の全栈！擅长 C# 与 JavaScript，个人主页:www.jxpxxzj.cn',
+                url:'http://jxpxxzj.oschina.io/'
             },
             {
-                name:'Zpnaruto',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team6.jpg',
-                text:'14级，前端。主页：www.zpnaruto.cn/',
-                url:''
-
+                name:'Equim',
+                src:'http://of8t6pu0g.bkt.clouddn.com/team-wangkangchen.jpg',
+                text:'Node.js 与 golang 后端，运维，偶尔写 C#，主页：https://ekyu.moe/',
+                url:'https://ekyu.moe/'
             },
-            {
+	    {
                 name:'Nastul',
                 src:'http://of8t6pu0g.bkt.clouddn.com/team8.jpg',
                 text:'Android&php&机器学习，云麓谷前移动组开发负责人，校乐队电音吉他手',
                 url:''
 
             },
-
             {
                 name:'XFeiF',
                 src:'http://of8t6pu0g.bkt.clouddn.com/team7.jpg',
@@ -357,20 +366,6 @@ var member = new Vue({
                 src:'http://of8t6pu0g.bkt.clouddn.com/team9.jpg',
                 text:'Data Miner，Pythoner，个人主页：http://oceanjaya.com/',
                 url:''
-
-            },
-            {
-                name:'jxpxxzj',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-xiaozijin.jpg',
-                text:'以全栈为目标成长，擅长 C# 与 JavaScript，个人主页:www.jxpxxzj.cn',
-                url:'http://jxpxxzj.oschina.io/'
-
-            },
-            {
-                name:'Equim',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-wangkangchen.jpg',
-                text:'Node.js 与 golang 后端，运维，偶尔写 C#，主页：https://ekyu.moe/',
-                url:'https://ekyu.moe/'
             },
             {
                 name:'长门有希',
