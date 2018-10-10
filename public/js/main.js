@@ -292,146 +292,146 @@ var member = new Vue({
         members:[
 	    {
                 name:'谢帅',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team2.jpg',
+                src:'/clouddn-file/team2.jpg',
                 text:'14级，中南大学图灵班首任班长，python与机器学习，实验室早期负责人与建设者（献花）',
                 url:''
             },
             {
                 name:'JustZht',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team3.jpg',
+                src:'/clouddn-file/team3.jpg',
                 text:'又叫萌天，14级，ios与unity开发，目前在百度做ios/unity开发，个人主页：justzht.com',
                 url:'http://www.justzht.com/'
 
             },
 	    {
                 name:'鲁鸣鸣 教授',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team1.jpg',
+                src:'/clouddn-file/team1.jpg',
                 text:'中南大学副教授，Citrix公司前高级工程师，研究计算机网络与信息安全',
                 url:''
             },
 	    {
                 name:'张伏旭',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-zhangfuxu.jpg',
+                src:'/clouddn-file/team-zhangfuxu.jpg',
                 text:'13级，苹果移动应用创新赛一等奖并与苹果CEU库克会面，目前研究人工智能',
                 url:''
 
             },
 	    {
                 name:'Zpnaruto',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team6.jpg',
+                src:'/clouddn-file/team6.jpg',
                 text:'14级，又叫gay平，在腾讯做前端实习。个人主页：www.zpnaruto.cn/',
                 url:''
 	    },
             {
                 name:'Bugzhang',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team4.jpg',
+                src:'/clouddn-file/team4.jpg',
                 text:'崇哥，14级，在深信服做前端，个人主页：bugzhang.com',
                 url:'http://www.bugzhang.com/'
 
             },
             {
                 name:'JasonVon',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team5.jpg',
+                src:'/clouddn-file/team5.jpg',
                 text:'14级，升华网前总监（后来大家都叫他“总监”），百度测试，同时熟悉php等后端技术。',
                 url:''
             },
 	    {
                 name:'jxpxxzj',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-xiaozijin.jpg',
+                src:'/clouddn-file/team-xiaozijin.jpg',
                 text:'jx菊苣！真の全栈！擅长 C# 与 JavaScript，个人主页:www.jxpxxzj.cn',
                 url:'http://jxpxxzj.oschina.io/'
             },
             {
                 name:'Equim',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-wangkangchen.jpg',
+                src:'/clouddn-file/team-wangkangchen.jpg',
                 text:'Node.js 与 golang 后端，运维，偶尔写 C#，主页：https://ekyu.moe/',
                 url:'https://ekyu.moe/'
             },
 	    {
                 name:'Nastul',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team8.jpg',
+                src:'/clouddn-file/team8.jpg',
                 text:'Android&php&机器学习，云麓谷前移动组开发负责人，校乐队电音吉他手',
                 url:''
 
             },
             {
                 name:'XFeiF',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team7.jpg',
+                src:'/clouddn-file/team7.jpg',
                 text:'算法，Android，个人主页：http://x-fei.me/。',
                 url:''
 
             },
             {
                 name:'OceanJaya',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team9.jpg',
+                src:'/clouddn-file/team9.jpg',
                 text:'Data Miner，Pythoner，个人主页：http://oceanjaya.com/',
                 url:''
             },
             {
                 name:'长门有希',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-suzhihua.jpg',
+                src:'/clouddn-file/team-suzhihua.jpg',
                 text:'Web，Linux，Win32，专注改配置和造轮子，主页：yuki-nagato.com',
                 url:'https://www.yuki-nagato.com/'
             },
             {
                 name:'宗健平',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-zongjianpin.jpg',
+                src:'/clouddn-file/team-zongjianpin.jpg',
                 text:'分布式，data miner，pythoner',
                 url:''
             },
             {
                 name:'Linvon',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-wanglinfen.jpg',
+                src:'/clouddn-file/team-wanglinfen.jpg',
                 text:'ACMer，c++，php后端开发，开发之余喜欢足球',
                 url:''
             },
             {
                 name:'ByeBir',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-lizhuo.jpg',
+                src:'/clouddn-file/team-lizhuo.jpg',
                 text:'前端开发与.net后端开发，对机器学习充满兴趣，爱好射箭',
                 url:''
             },
             {
                 name:'Phoenix',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-Phoenix.jpg',
+                src:'/clouddn-file/team-Phoenix.jpg',
                 text:'iOS开发与算法爱好者',
                 url:''
             },
             {
                 name:'麦宇翔',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-maiyuxiang.jpg',
+                src:'/clouddn-file/team-maiyuxiang.jpg',
                 text:'移动组，iOS开发，爱好探险',
                 url:''
             },
             {
                 name:'崔心雨',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team.cuixinyu',
+                src:'/clouddn-file/team.cuixinyu',
                 text:'心自爱云间，与君共前端。醉起抚白衫，率舞更翩跹',
                 url:''
             },
             {
                 name:'Charlieyang',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-yangtianchen.jpg',
+                src:'/clouddn-file/team-yangtianchen.jpg',
                 text:'研发组，移动开发',
                 url:''
             },
             {
                 name:'Aknife',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-zengdejiao.jpg',
+                src:'/clouddn-file/team-zengdejiao.jpg',
                 text:'php，objective-c爱好者',
                 url:''
             },
             {
                 name:'Visual Artist',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team-huoyongzhen.jpg',
+                src:'/clouddn-file/team-huoyongzhen.jpg',
                 text:'万能的霍小猫',
                 url:''
             },
             {
                 name:'加入我们',
-                src:'http://of8t6pu0g.bkt.clouddn.com/team11.jpg',
+                src:'/clouddn-file/team11.jpg',
                 text:'我们在寻找下一个志在未来的你!',
-                url:'http://hr.csuapple.com/'
+                url:'https://csuapple.com/'
             }
         ]
     }
